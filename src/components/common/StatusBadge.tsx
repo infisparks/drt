@@ -6,6 +6,7 @@ interface StatusBadgeProps {
   children: React.ReactNode;
   variant?: BadgeVariant;
   size?: 'sm' | 'md';
+  dot?: boolean;
   className?: string;
 }
 
@@ -13,6 +14,7 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({
   children,
   variant = 'neutral',
   size = 'sm',
+  dot = true,
   className = ''
 }) => {
   const variantStyles: Record<BadgeVariant, string> = {
@@ -32,6 +34,9 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({
     <span
       className={`inline-flex items-center font-medium rounded-full border ${sizeStyles} ${variantStyles[variant]} ${className}`}
     >
+      {dot && (
+        <span className="w-1.5 h-1.5 rounded-full mr-1.5 bg-current opacity-70 flex-shrink-0" />
+      )}
       {children}
     </span>
   );

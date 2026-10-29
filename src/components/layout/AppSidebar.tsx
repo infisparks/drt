@@ -166,21 +166,21 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
         } ${isCollapsed ? 'lg:w-[72px]' : 'lg:w-64'}`}
       >
         {/* Logo and Brand Header */}
-        <div className="h-16 px-4 flex items-center justify-between border-b border-surface-border/80 flex-shrink-0">
-          <div className="flex items-center gap-3 overflow-hidden">
-            <div className="w-9 h-9 rounded-lg bg-brand-navy flex items-center justify-center text-white flex-shrink-0 shadow-sm">
-              <School className="w-5 h-5 text-white" />
+        <div className="h-16 px-3.5 flex items-center justify-between border-b border-surface-border/80 flex-shrink-0 bg-white">
+          <div className="flex items-center gap-2.5 overflow-hidden">
+            <div className="w-9 h-9 rounded-xl bg-brand-navy flex items-center justify-center text-white flex-shrink-0 shadow-sm border border-brand-navyDark">
+              <School className="w-4.5 h-4.5 text-white" />
             </div>
 
             {!isCollapsed && (
               <div className="flex flex-col min-w-0">
-                <span className="text-sm font-bold text-brand-navy tracking-tight truncate leading-tight">
+                <span className="text-[13px] font-bold text-brand-navy tracking-tight truncate leading-tight uppercase">
                   DRT Knowledge Hub
                 </span>
-                <span className="text-[10px] text-ink-secondary truncate flex items-center gap-1">
-                  <span>Smart School ERP</span>
+                <span className="text-[10px] text-ink-secondary truncate flex items-center gap-1 font-medium">
+                  <span className="text-slate-500">Mumbra</span>
                   <span className="text-slate-300">•</span>
-                  <span className="text-brand-blue font-medium">CBSE</span>
+                  <span className="text-brand-blue font-semibold">CBSE 1130982</span>
                 </span>
               </div>
             )}

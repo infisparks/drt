@@ -51,21 +51,21 @@ export const StatCard: React.FC<StatCardProps> = ({
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
-          <p className="text-xs font-medium text-ink-secondary tracking-wide uppercase truncate">
+          <p className="text-[11px] font-semibold text-ink-secondary tracking-wider uppercase truncate">
             {label}
           </p>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-2xl font-bold text-ink-primary tabular-nums tracking-tight">
+          <div className="mt-1.5 flex items-baseline gap-2">
+            <span className="text-2xl font-bold text-brand-navy tabular-nums tracking-tight">
               {value}
             </span>
             {trend && (
               <span
-                className={`inline-flex items-center text-xs font-semibold tabular-nums ${
+                className={`inline-flex items-center text-xs font-semibold tabular-nums px-1.5 py-0.5 rounded ${
                   trend.isNeutral
-                    ? 'text-ink-secondary'
+                    ? 'text-ink-secondary bg-slate-100'
                     : trend.isPositive
-                    ? 'text-emerald-600'
-                    : 'text-rose-600'
+                    ? 'text-emerald-700 bg-emerald-50'
+                    : 'text-rose-700 bg-rose-50'
                 }`}
               >
                 {trend.isNeutral ? (
@@ -81,7 +81,7 @@ export const StatCard: React.FC<StatCardProps> = ({
           </div>
         </div>
 
-        <div className="w-10 h-10 rounded-lg bg-surface-muted flex items-center justify-center text-brand-navy flex-shrink-0 group-hover:bg-brand-blue/10 group-hover:text-brand-blue transition-colors">
+        <div className="w-10 h-10 rounded-xl bg-surface-muted border border-surface-border/60 flex items-center justify-center text-brand-navy flex-shrink-0 group-hover:bg-brand-blue/10 group-hover:text-brand-blue group-hover:border-brand-blue/20 transition-all">
           <Icon className="w-5 h-5" />
         </div>
       </div>

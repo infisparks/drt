@@ -321,7 +321,7 @@ export const SQAAFView: React.FC<SQAAFViewProps> = ({ onShowToast }) => {
                 Sub-standards & Verification Benchmarks
               </h5>
               <div className="space-y-2">
-                {selectedDomain.subStandards.map((std, i) => (
+                {(selectedDomain.subStandards || []).map((std, i) => (
                   <div key={i} className="p-3 bg-white border border-surface-border rounded-lg flex items-start gap-2.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
                     <span className="text-ink-primary">{std}</span>
