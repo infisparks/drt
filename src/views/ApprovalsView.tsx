@@ -162,7 +162,7 @@ export const ApprovalsView: React.FC<ApprovalsViewProps> = ({ onShowToast }) => 
       />
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           label="Pending Your Decision"
           value={items.filter(i => i.status.includes('Pending')).length.toString()}
@@ -191,7 +191,7 @@ export const ApprovalsView: React.FC<ApprovalsViewProps> = ({ onShowToast }) => 
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex border-b border-surface-border">
+      <div className="flex border-b border-surface-border overflow-x-auto no-scrollbar">
         {[
           { key: 'pending', label: `Pending Approvals (${items.filter(i => i.status.includes('Pending')).length})` },
           { key: 'all', label: `All Requests (${items.length})` },
@@ -201,7 +201,7 @@ export const ApprovalsView: React.FC<ApprovalsViewProps> = ({ onShowToast }) => 
           <button
             key={tab.key}
             onClick={() => setFilterStatus(tab.key as any)}
-            className={`py-3 px-5 text-xs sm:text-sm font-semibold border-b-2 whitespace-nowrap transition-colors ${
+            className={`py-3 px-4 sm:px-5 text-xs sm:text-sm font-semibold border-b-2 whitespace-nowrap transition-colors flex-shrink-0 ${
               filterStatus === tab.key
                 ? 'border-brand-navy text-brand-navy'
                 : 'border-transparent text-ink-secondary hover:text-ink-primary'
@@ -268,13 +268,13 @@ export const ApprovalsView: React.FC<ApprovalsViewProps> = ({ onShowToast }) => 
                 )}
 
                 {/* Status and Action Buttons */}
-                <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
+                <div className="flex items-center gap-2 flex-shrink-0 flex-wrap w-full lg:w-auto">
                   <button
                     onClick={() => {
                       setSelectedItem(item);
                       setIsDetailDrawerOpen(true);
                     }}
-                    className="px-3 py-1.5 text-xs font-medium text-ink-secondary hover:text-ink-primary bg-white border border-surface-border rounded-lg hover:bg-surface-muted transition-colors"
+                    className="flex-1 sm:flex-initial px-3 py-1.5 text-xs font-medium text-ink-secondary hover:text-ink-primary bg-white border border-surface-border rounded-lg hover:bg-surface-muted transition-colors text-center"
                   >
                     Details & Audit
                   </button>
@@ -283,21 +283,21 @@ export const ApprovalsView: React.FC<ApprovalsViewProps> = ({ onShowToast }) => 
                     <>
                       <button
                         onClick={() => setRequestChangesModal({ isOpen: true, item, comments: '' })}
-                        className="px-3 py-1.5 text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-200 rounded-lg transition-colors"
+                        className="flex-1 sm:flex-initial px-3 py-1.5 text-xs font-semibold text-amber-800 bg-amber-50 hover:bg-amber-100 border border-amber-200 rounded-lg transition-colors text-center"
                       >
                         Request Changes
                       </button>
 
                       <button
                         onClick={() => setConfirmAction({ isOpen: true, type: 'reject', item })}
-                        className="px-3 py-1.5 text-xs font-semibold text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-lg transition-colors"
+                        className="flex-1 sm:flex-initial px-3 py-1.5 text-xs font-semibold text-rose-700 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-lg transition-colors text-center"
                       >
                         Reject
                       </button>
 
                       <button
                         onClick={() => setConfirmAction({ isOpen: true, type: 'approve', item })}
-                        className="px-4 py-1.5 text-xs font-semibold text-white bg-brand-navy hover:bg-brand-navyDark rounded-lg shadow-subtle transition-colors flex items-center gap-1"
+                        className="w-full sm:w-auto px-4 py-1.5 text-xs font-semibold text-white bg-brand-navy hover:bg-brand-navyDark rounded-lg shadow-subtle transition-colors flex items-center justify-center gap-1"
                       >
                         <Check className="w-3.5 h-3.5" />
                         <span>Approve</span>

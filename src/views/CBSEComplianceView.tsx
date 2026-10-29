@@ -289,7 +289,67 @@ export const CBSEComplianceView: React.FC<CBSEComplianceViewProps> = ({ onShowTo
 
       {/* Structured Compliance Table */}
       <div className="bg-white border border-surface-border rounded-xl shadow-subtle overflow-hidden">
-        <div className="overflow-x-auto">
+        {/* Mobile Cards (sm:hidden) */}
+        <div className="block sm:hidden divide-y divide-surface-border/60">
+          {filteredDocs.map((doc) => (
+            <div
+              key={doc.id}
+              onClick={() => handleOpenDoc(doc)}
+              className="p-4 hover:bg-surface-cardHover transition-colors cursor-pointer space-y-3"
+            >
+              <div className="flex items-start justify-between gap-2.5">
+                <div className="flex items-start gap-2.5">
+                  <div className="p-1.5 rounded-lg bg-surface-muted text-brand-navy flex-shrink-0 mt-0.5">
+                    <FileText className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-ink-primary text-sm leading-snug">
+                      {doc.title}
+                    </p>
+                    <p className="text-[11px] text-ink-secondary mt-0.5">
+                      {doc.category}
+                    </p>
+                  </div>
+                </div>
+                <StatusBadge
+                  variant={
+                    doc.status === 'Valid'
+                      ? 'success'
+                      : doc.status === 'Expiring Soon'
+                      ? 'warning'
+                      : 'danger'
+                  }
+                  size="sm"
+                >
+                  {doc.status}
+                </StatusBadge>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 text-xs pt-1.5 border-t border-surface-border/40">
+                <div>
+                  <span className="text-[10px] uppercase font-semibold text-ink-secondary block">Issuing Authority</span>
+                  <span className="font-medium text-ink-primary truncate block">{doc.issuingAuthority}</span>
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-semibold text-ink-secondary block">Validity / Expiry</span>
+                  <span className={`font-semibold tabular-nums ${doc.daysRemaining <= 30 ? 'text-amber-700 font-bold' : 'text-slate-700'}`}>
+                    {doc.daysRemaining > 0 ? `${doc.daysRemaining} days left` : 'Expired'}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between pt-1 text-xs text-ink-secondary">
+                <span className="font-mono text-[11px] text-slate-500">#{doc.certificateNumber}</span>
+                <span className="text-brand-blue font-semibold text-xs flex items-center gap-1">
+                  Inspect File &rarr;
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Data Table (hidden sm:block) */}
+        <div className="hidden sm:block overflow-x-auto">
           <table className="w-full text-left border-collapse text-xs sm:text-sm">
             <thead>
               <tr className="bg-surface-bg/80 border-b border-surface-border text-ink-secondary text-[11px] uppercase tracking-wider font-semibold">

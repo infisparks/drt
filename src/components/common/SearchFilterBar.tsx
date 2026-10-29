@@ -62,13 +62,13 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
         </div>
 
         {/* Filters and Actions */}
-        <div className="flex items-center gap-2.5 flex-wrap">
+        <div className="flex items-center gap-2 flex-wrap w-full md:w-auto">
           {filters.map((filter) => (
-            <div key={filter.key} className="relative min-w-[130px]">
+            <div key={filter.key} className="relative flex-1 min-w-[120px] sm:flex-initial sm:min-w-[140px]">
               <select
                 value={filter.value}
                 onChange={(e) => filter.onChange(e.target.value)}
-                className="w-full appearance-none pl-3 pr-8 py-2 text-xs sm:text-sm bg-white border border-surface-border rounded-lg text-ink-primary font-medium focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition-all cursor-pointer"
+                className="w-full appearance-none pl-3 pr-7 py-2 text-xs sm:text-sm bg-white border border-surface-border rounded-lg text-ink-primary font-medium focus:outline-none focus:ring-2 focus:ring-brand-blue/30 focus:border-brand-blue transition-all cursor-pointer truncate"
               >
                 {filter.options.map((opt) => (
                   <option key={opt.value} value={opt.value}>

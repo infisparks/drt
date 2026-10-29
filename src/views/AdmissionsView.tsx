@@ -235,20 +235,89 @@ export const AdmissionsView: React.FC<AdmissionsViewProps> = ({ onShowToast }) =
             }}
           />
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-surface-bg/80 border-b border-surface-border text-ink-secondary text-[11px] uppercase tracking-wider font-semibold">
-                  <th className="py-3 px-4">Student</th>
-                  <th className="py-3 px-4">Adm. No</th>
-                  <th className="py-3 px-4">Class & Sec</th>
-                  <th className="py-3 px-4">Guardian Contact</th>
-                  <th className="py-3 px-4 text-center">Attendance</th>
-                  <th className="py-3 px-4 text-center">Fee Status</th>
-                  <th className="py-3 px-4 text-center">Status</th>
-                  <th className="py-3 px-4 text-right">Actions</th>
-                </tr>
-              </thead>
+          <>
+            {/* Mobile Cards View (sm:hidden) */}
+            <div className="block sm:hidden divide-y divide-surface-border/60">
+              {filteredStudents.map((std) => (
+                <div
+                  key={std.id}
+                  onClick={() => handleOpenStudentDrawer(std)}
+                  className="p-4 hover:bg-surface-cardHover transition-colors cursor-pointer space-y-2.5"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-2.5">
+                      <img
+                        src={std.avatar}
+                        alt={std.name}
+                        className="w-10 h-10 rounded-full object-cover ring-1 ring-surface-border flex-shrink-0"
+                      />
+                      <div>
+                        <p className="font-semibold text-ink-primary text-sm">
+                          {std.name}
+                        </p>
+                        <p className="text-[11px] text-ink-secondary">
+                          Class {std.grade}-{std.section} • Adm: <span className="font-mono">{std.admissionNo}</span>
+                        </p>
+                      </div>
+                    </div>
+                    <StatusBadge
+                      variant={
+                        std.status === 'Active'
+                          ? 'brand'
+                          : std.status === 'Under Review'
+                          ? 'warning'
+                          : 'neutral'
+                      }
+                      size="sm"
+                    >
+                      {std.status}
+                    </StatusBadge>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs pt-1.5 border-t border-surface-border/40">
+                    <div>
+                      <span className="text-[10px] uppercase font-semibold text-ink-secondary block">Attendance</span>
+                      <span className={`font-semibold tabular-nums ${std.attendancePct < 75 ? 'text-rose-600' : 'text-emerald-700'}`}>
+                        {std.attendancePct}% {std.attendancePct < 75 && '(Rule 13 Alert)'}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="text-[10px] uppercase font-semibold text-ink-secondary block">Fee Ledger</span>
+                      <span className="font-medium text-ink-primary">{std.feeStatus}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between pt-1 text-xs text-ink-secondary">
+                    <span className="truncate">Guardian: {std.fatherName}</span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleOpenStudentDrawer(std);
+                      }}
+                      className="text-brand-blue font-semibold text-xs flex items-center gap-1"
+                    >
+                      Profile &rarr;
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Desktop Data Table (hidden sm:block) */}
+            <div className="hidden sm:block overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="bg-surface-bg/80 border-b border-surface-border text-ink-secondary text-[11px] uppercase tracking-wider font-semibold">
+                    <th className="py-3 px-4">Student</th>
+                    <th className="py-3 px-4">Adm. No</th>
+                    <th className="py-3 px-4">Class & Sec</th>
+                    <th className="py-3 px-4">Guardian Contact</th>
+                    <th className="py-3 px-4 text-center">Attendance</th>
+                    <th className="py-3 px-4 text-center">Fee Status</th>
+                    <th className="py-3 px-4 text-center">Status</th>
+                    <th className="py-3 px-4 text-right">Actions</th>
+                  </tr>
+                </thead>
               <tbody className="divide-y divide-surface-border/60 text-xs sm:text-sm">
                 {filteredStudents.map((std) => (
                   <tr
@@ -362,7 +431,8 @@ export const AdmissionsView: React.FC<AdmissionsViewProps> = ({ onShowToast }) =
               </tbody>
             </table>
           </div>
-        )}
+        </>
+      )}
       </div>
 
       {/* Student Profile Drawer */}

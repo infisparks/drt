@@ -53,8 +53,8 @@ export const DetailDrawer: React.FC<DetailDrawerProps> = ({
         aria-hidden="true"
       />
 
-      <div className="fixed inset-y-0 right-0 flex max-w-full pl-6 sm:pl-10">
-        <div className={`w-screen ${widthClass} bg-white shadow-drawer border-l border-surface-border flex flex-col transform transition ease-in-out duration-200`}>
+      <div className="fixed inset-y-0 right-0 flex max-w-full pl-0 sm:pl-10">
+        <div className={`w-screen ${widthClass} max-w-full bg-white shadow-drawer border-l border-surface-border flex flex-col transform transition ease-in-out duration-200`}>
           {/* Header */}
           <div className="px-5 py-4 border-b border-surface-border flex items-center justify-between bg-surface-bg/50">
             <div>

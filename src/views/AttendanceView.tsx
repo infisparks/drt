@@ -105,7 +105,7 @@ export const AttendanceView: React.FC<AttendanceViewProps> = ({ onShowToast }) =
       />
 
       {/* Summary KPI Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
           label="Present Today"
           value="94.6%"
@@ -137,7 +137,7 @@ export const AttendanceView: React.FC<AttendanceViewProps> = ({ onShowToast }) =
       </div>
 
       {/* Tabs Navigation */}
-      <div className="flex border-b border-surface-border">
+      <div className="flex border-b border-surface-border overflow-x-auto no-scrollbar">
         <button
           onClick={() => setActiveTab('rollcall')}
           className={`py-3 px-5 text-xs sm:text-sm font-semibold border-b-2 transition-colors ${
