@@ -16,6 +16,7 @@ import { StaffHRView } from './views/StaffHRView';
 import { FeesFinanceView } from './views/FeesFinanceView';
 import { CBSEComplianceView } from './views/CBSEComplianceView';
 import { PublicDisclosureView } from './views/PublicDisclosureView';
+import { NABETView } from './views/NABETView';
 import { SQAAFView } from './views/SQAAFView';
 import { ApprovalsView } from './views/ApprovalsView';
 import { ResourcesView } from './views/ResourcesView';
@@ -112,6 +113,7 @@ export const App: React.FC = () => {
       'examinations': { group: 'School Operations', label: 'Examinations' },
       'staff': { group: 'School Operations', label: 'Staff & HR' },
       'fees': { group: 'School Operations', label: 'Fees & Finance' },
+      'nabet': { group: 'Governance', label: 'NABET Accreditation (June 2025)' },
       'compliance': { group: 'Governance', label: 'CBSE Compliance' },
       'disclosure': { group: 'Governance', label: 'Public Disclosure' },
       'sqaaf': { group: 'Governance', label: 'SQAAF & Improvement' },
@@ -135,7 +137,9 @@ export const App: React.FC = () => {
   // Global search handler
   const handleGlobalSearch = (query: string) => {
     const q = query.toLowerCase();
-    if (q.includes('fire') || q.includes('noc') || q.includes('compliance')) {
+    if (q.includes('nabet') || q.includes('accredit') || q.includes('standard 2025') || q.includes('qci')) {
+      setCurrentView('nabet');
+    } else if (q.includes('fire') || q.includes('noc') || q.includes('compliance')) {
       setCurrentView('compliance');
     } else if (q.includes('fee') || q.includes('due') || q.includes('receipt')) {
       setCurrentView('fees');
@@ -246,6 +250,13 @@ export const App: React.FC = () => {
 
           {currentView === 'fees' && (
             <FeesFinanceView onShowToast={addToast} />
+          )}
+
+          {currentView === 'nabet' && (
+            <NABETView
+              onShowToast={addToast}
+              onNavigateView={(viewKey) => setCurrentView(viewKey as ViewKey)}
+            />
           )}
 
           {currentView === 'compliance' && (

@@ -1,6 +1,7 @@
 import React from 'react';
-import { X, Printer, Download, ShieldCheck, School, CheckCircle2 } from 'lucide-react';
+import { X, Printer, Download, ShieldCheck, School, CheckCircle2, ExternalLink } from 'lucide-react';
 import { SCHOOL_INFO, CURRENT_SESSION } from '../../data/mockData';
+import { generateExecutiveDossierBlobUrl } from '../../utils/pdfGenerator';
 
 interface ExecutiveReportModalProps {
   isOpen: boolean;
@@ -16,6 +17,46 @@ export const ExecutiveReportModal: React.FC<ExecutiveReportModalProps> = ({
   onDownloadPdf
 }) => {
   if (!isOpen) return null;
+
+  const handleOpenPdfBlob = () => {
+    try {
+      const blobUrl = generateExecutiveDossierBlobUrl();
+      window.open(blobUrl, '_blank');
+      onDownloadPdf();
+    } catch (err) {
+      console.error('Error generating executive PDF Blob:', err);
+    }
+  };
+
+  const handleDownloadPdf = () => {
+    try {
+      const blobUrl = generateExecutiveDossierBlobUrl();
+      window.open(blobUrl, '_blank');
+      const a = document.createElement('a');
+      a.href = blobUrl;
+      a.download = `Executive_Dossier_DRT_${CURRENT_SESSION.replace('-', '_')}.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      onDownloadPdf();
+    } catch (err) {
+      console.error('Error downloading executive PDF:', err);
+    }
+  };
+
+  const handlePrint = () => {
+    try {
+      const blobUrl = generateExecutiveDossierBlobUrl();
+      const printWindow = window.open(blobUrl, '_blank');
+      if (printWindow) {
+        printWindow.focus();
+      }
+      onPrint();
+    } catch (err) {
+      console.error('Error printing executive dossier:', err);
+      window.print();
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto">
@@ -42,15 +83,25 @@ export const ExecutiveReportModal: React.FC<ExecutiveReportModalProps> = ({
             </div>
             <div className="flex items-center gap-2">
               <button
-                onClick={onPrint}
+                onClick={handlePrint}
                 className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-lg border border-surface-border bg-white hover:bg-surface-muted text-ink-primary"
+                title="Print executive dossier"
               >
                 <Printer className="w-3.5 h-3.5" />
                 <span>Print Dossier</span>
               </button>
               <button
-                onClick={onDownloadPdf}
+                onClick={handleOpenPdfBlob}
+                className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold rounded-lg border border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-indigo-700"
+                title="Open PDF Blob URL in new window"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>Open PDF</span>
+              </button>
+              <button
+                onClick={handleDownloadPdf}
                 className="inline-flex items-center gap-1 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-brand-navy hover:bg-brand-navyDark text-white shadow-subtle"
+                title="Open Blob URL & Download"
               >
                 <Download className="w-3.5 h-3.5" />
                 <span>Download PDF</span>

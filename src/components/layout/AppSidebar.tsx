@@ -38,6 +38,7 @@ export type ViewKey =
   | 'fees'
   | 'compliance'
   | 'disclosure'
+  | 'nabet'
   | 'sqaaf'
   | 'approvals'
   | 'infrastructure'
@@ -115,9 +116,10 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
       id: 'governance',
       label: 'GOVERNANCE',
       items: [
+        { key: 'nabet', label: 'NABET Accreditation', icon: Award, badge: 'June 2025', badgeVariant: 'brand' },
         { key: 'compliance', label: 'CBSE Compliance', icon: ShieldCheck, badge: '87%', badgeVariant: 'warning' },
         { key: 'disclosure', label: 'Public Disclosure', icon: FileText, badge: 'Appx IX' },
-        { key: 'sqaaf', label: 'SQAAF & Improvement', icon: Award },
+        { key: 'sqaaf', label: 'SQAAF & Improvement', icon: CheckSquare },
         { key: 'approvals', label: 'Approvals & Tasks', icon: CheckSquare, badge: '5 Pending', badgeVariant: 'danger' }
       ]
     },
