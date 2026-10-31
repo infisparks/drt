@@ -315,16 +315,16 @@ export function generateNABETDossierBlobUrl(
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8);
   doc.setTextColor(textDark[0], textDark[1], textDark[2]);
-  doc.text('Mrs. Shabana Shaikh', 22, endY + 16);
-  doc.text('Adv. Farhana Qureshi', 82, endY + 16);
-  doc.text('Dr. A. R. Khan', 148, endY + 16);
+  doc.text('Mrs. Shaheen Shaikh', 22, endY + 16);
+  doc.text('Mr. Iqbal Virani', 84, endY + 16);
+  doc.text('Shabnam Shaikh', 146, endY + 16);
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(7);
   doc.setTextColor(textMuted[0], textMuted[1], textMuted[2]);
   doc.text('Principal & Head of QA', 23, endY + 20);
-  doc.text('Compliance & Lead Auditor', 82, endY + 20);
-  doc.text('Managing Director & Trustee', 143, endY + 20);
+  doc.text('Elected Authority & Compliance', 79, endY + 20);
+  doc.text('Chair Person (SMC) & Trustee', 142, endY + 20);
 
   // Generate output blob and return blob URL
   const pdfBlob = doc.output('blob');
@@ -416,14 +416,14 @@ export function generateExecutiveDossierBlobUrl(): string {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8);
   doc.setTextColor(textDark[0], textDark[1], textDark[2]);
-  doc.text('Mrs. Shabana Shaikh', 22, finalY + 28);
-  doc.text('Dr. A. R. Khan', 146, finalY + 28);
+  doc.text('Mrs. Shaheen Shaikh', 22, finalY + 28);
+  doc.text('Shabnam Shaikh', 146, finalY + 28);
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(7);
   doc.setTextColor(textMuted[0], textMuted[1], textMuted[2]);
   doc.text('Principal & Head of Institution', 22, finalY + 32);
-  doc.text('Managing Director & Trustee', 142, finalY + 32);
+  doc.text('Chair Person (SMC) & Trustee', 142, finalY + 32);
 
   const pdfBlob = doc.output('blob');
   return URL.createObjectURL(pdfBlob);

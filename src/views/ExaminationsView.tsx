@@ -320,7 +320,7 @@ export const ExaminationsView: React.FC<ExaminationsViewProps> = ({ onShowToast 
                 </p>
               </div>
               <span className="text-xs font-semibold text-brand-navy">
-                Teacher: Mr. Rajesh Sharma
+                Teacher: Ms. Samreen Khatib (TGT Maths)
               </span>
             </div>
 

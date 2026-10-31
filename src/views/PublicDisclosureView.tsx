@@ -255,7 +255,7 @@ export const PublicDisclosureView: React.FC<PublicDisclosureViewProps> = ({ onSh
                       <tr><td className="p-2.5 bg-surface-bg font-semibold text-ink-secondary">AFFILIATION NO.</td><td className="p-2.5 font-mono text-ink-primary">{SCHOOL_INFO.affiliationNo}</td></tr>
                       <tr><td className="p-2.5 bg-surface-bg font-semibold text-ink-secondary">SCHOOL CODE</td><td className="p-2.5 font-mono text-ink-primary">{SCHOOL_INFO.schoolCode}</td></tr>
                       <tr><td className="p-2.5 bg-surface-bg font-semibold text-ink-secondary">COMPLETE ADDRESS</td><td className="p-2.5 text-ink-primary">{SCHOOL_INFO.address}</td></tr>
-                      <tr><td className="p-2.5 bg-surface-bg font-semibold text-ink-secondary">PRINCIPAL NAME & QUALIFICATION</td><td className="p-2.5 text-ink-primary">Mrs. Shabana Shaikh (M.Sc, M.Ed, 18 yrs exp)</td></tr>
+                      <tr><td className="p-2.5 bg-surface-bg font-semibold text-ink-secondary">PRINCIPAL NAME & QUALIFICATION</td><td className="p-2.5 text-ink-primary">Mrs. Shaheen Shaikh (M.A., B.Ed., M.Ed., 18 yrs exp)</td></tr>
                       <tr><td className="p-2.5 bg-surface-bg font-semibold text-ink-secondary">SCHOOL EMAIL ID</td><td className="p-2.5 text-ink-primary">{SCHOOL_INFO.email}</td></tr>
                     </tbody>
                   </table>

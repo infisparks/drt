@@ -91,7 +91,7 @@ export const ApprovalsView: React.FC<ApprovalsViewProps> = ({ onShowToast }) => 
           ...(i.history || []),
           {
             step: 'Administrative Approval Granted',
-            actor: 'Director Dr. A. R. Khan',
+            actor: 'SMC Chair Person Shabnam Shaikh',
             timestamp: 'Just Now',
             status: 'completed' as const,
             comments: 'Sanctioned under institutional budget authority.'

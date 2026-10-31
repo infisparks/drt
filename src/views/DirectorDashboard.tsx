@@ -57,7 +57,7 @@ export const DirectorDashboard: React.FC<DirectorDashboardProps> = ({
       title: 'NABET 4th Edition Self-Assessment & MRM Minutes Signoff',
       category: 'Quality Accreditation',
       priority: 'Urgent',
-      responsible: 'Mrs. Shabana Shaikh (Principal & Head QA)',
+      responsible: 'Mrs. Shaheen Shaikh (Principal & Head QA)',
       dueDate: 'In 5 Days (Nov 04, 2026)',
       status: '85.2% Ready (36 Params)',
       targetView: 'nabet' as ViewKey
@@ -67,7 +67,7 @@ export const DirectorDashboard: React.FC<DirectorDashboardProps> = ({
       title: 'Municipal Fire NOC Renewal Due',
       category: 'CBSE Statutory',
       priority: 'Urgent',
-      responsible: 'Adv. Farhana Qureshi (Legal/Compliance)',
+      responsible: 'Mr. Iqbal Virani (Elected Authority & Compliance)',
       dueDate: 'In 18 Days (Nov 15, 2026)',
       status: 'Inspection Scheduled',
       targetView: 'compliance' as ViewKey
@@ -77,7 +77,7 @@ export const DirectorDashboard: React.FC<DirectorDashboardProps> = ({
       title: 'Science Lab Equipment Requisition Approval',
       category: 'Purchase Approval',
       priority: 'High',
-      responsible: 'Dr. A. R. Khan (Director)',
+      responsible: 'Shabnam Shaikh (SMC Chair Person & Trustee)',
       dueDate: 'Tomorrow',
       status: 'Pending Signoff',
       targetView: 'approvals' as ViewKey
@@ -87,7 +87,7 @@ export const DirectorDashboard: React.FC<DirectorDashboardProps> = ({
       title: 'CBSE Rule 13 Attendance Shortage Warning Letters (Class X-B)',
       category: 'Academic Compliance',
       priority: 'High',
-      responsible: 'Mrs. Shabana Shaikh (Principal)',
+      responsible: 'Mrs. Shaheen Shaikh (Principal)',
       dueDate: 'Nov 02, 2026',
       status: '3 Students <75%',
       targetView: 'attendance' as ViewKey
@@ -97,7 +97,7 @@ export const DirectorDashboard: React.FC<DirectorDashboardProps> = ({
       title: 'Annual Drinking Water & Sanitation Testing Report Upload',
       category: 'Mandatory Disclosure',
       priority: 'Medium',
-      responsible: 'Mr. Tariq Memon (Admin)',
+      responsible: 'Mr. Ramiz Kadiri (Admin / Facilities)',
       dueDate: 'Nov 10, 2026',
       status: 'Lab Report Received',
       targetView: 'disclosure' as ViewKey
@@ -107,7 +107,7 @@ export const DirectorDashboard: React.FC<DirectorDashboardProps> = ({
       title: 'Term-2 Fee Reconciliation & Defaulters Notice Batch',
       category: 'Finance Desk',
       priority: 'Medium',
-      responsible: 'Mr. Imran Siddiqui (Accounts)',
+      responsible: 'Ms. Nida Aagah (Senior Accountant)',
       dueDate: 'Nov 05, 2026',
       status: '₹18.6L Dues Pending',
       targetView: 'fees' as ViewKey

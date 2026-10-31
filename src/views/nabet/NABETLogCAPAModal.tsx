@@ -24,7 +24,7 @@ export const NABETLogCAPAModal: React.FC<NABETLogCAPAModalProps> = ({
   const [rootCauseSummary, setRootCauseSummary] = useState('');
   const [actionType, setActionType] = useState<NABETCAPAType>('Corrective');
   const [priority, setPriority] = useState<NABETCAPAPriority>('Medium');
-  const [assignedTo, setAssignedTo] = useState('Mrs. Shabana Shaikh (Principal)');
+  const [assignedTo, setAssignedTo] = useState('Mrs. Shaheen Shaikh (Principal)');
   const [department, setDepartment] = useState('Academic Quality Wing');
   const [targetDate, setTargetDate] = useState('2026-12-15');
 

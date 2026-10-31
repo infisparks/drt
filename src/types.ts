@@ -104,6 +104,22 @@ export interface PublicDisclosureRow {
   lastUpdated: string;
 }
 
+export interface SMCRecord {
+  srNo: number;
+  name: string;
+  designation: string;
+  qualification: string;
+  address: string;
+  contactNo: string;
+}
+
+export interface PTARecord {
+  srNo: number;
+  name: string;
+  grade: string;
+  designation: string;
+}
+
 export interface SQAAFDomain {
   id: number;
   domainNumber?: number;

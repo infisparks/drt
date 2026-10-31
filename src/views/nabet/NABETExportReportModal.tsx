@@ -353,20 +353,20 @@ export const NABETExportReportModal: React.FC<NABETExportReportModalProps> = ({
             <div className="pt-8 border-t border-surface-border grid grid-cols-2 sm:grid-cols-3 gap-6 text-center text-xs">
               <div>
                 <div className="h-10 border-b border-slate-300 mb-1" />
-                <p className="font-bold text-ink-primary">Mrs. Shabana Shaikh</p>
+                <p className="font-bold text-ink-primary">Mrs. Shaheen Shaikh</p>
                 <p className="text-ink-secondary text-[11px]">Principal & Head of QA</p>
               </div>
 
               <div>
                 <div className="h-10 border-b border-slate-300 mb-1" />
-                <p className="font-bold text-ink-primary">Adv. Farhana Qureshi</p>
-                <p className="text-ink-secondary text-[11px]">Compliance & Lead Auditor</p>
+                <p className="font-bold text-ink-primary">Mr. Iqbal Virani</p>
+                <p className="text-ink-secondary text-[11px]">Elected Authority & Compliance</p>
               </div>
 
               <div className="col-span-2 sm:col-span-1">
                 <div className="h-10 border-b border-slate-300 mb-1" />
-                <p className="font-bold text-ink-primary">Dr. A. R. Khan</p>
-                <p className="text-ink-secondary text-[11px]">Managing Director & Trustee</p>
+                <p className="font-bold text-ink-primary">Shabnam Shaikh</p>
+                <p className="text-ink-secondary text-[11px]">Chair Person (SMC) & Trustee</p>
               </div>
             </div>
           </div>

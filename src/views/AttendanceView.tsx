@@ -69,7 +69,7 @@ export const AttendanceView: React.FC<AttendanceViewProps> = ({ onShowToast }) =
   const handleCorrectionSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsCorrectionModalOpen(false);
-    onShowToast('success', 'Correction Request Submitted', 'Sent to Principal Mrs. Shabana Shaikh for administrative audit.');
+    onShowToast('success', 'Correction Request Submitted', 'Sent to Principal Mrs. Shaheen Shaikh for administrative audit.');
   };
 
   // Rule 13 shortage students (<75% aggregate)

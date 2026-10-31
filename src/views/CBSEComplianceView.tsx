@@ -69,11 +69,13 @@ export const CBSEComplianceView: React.FC<CBSEComplianceViewProps> = ({ onShowTo
         doc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         (doc.certificateNumber ? doc.certificateNumber.toLowerCase().includes(searchQuery.toLowerCase()) : false) ||
         doc.issuingAuthority.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (doc.assignedOfficer ? doc.assignedOfficer.toLowerCase().includes(searchQuery.toLowerCase()) : false) ||
         (doc.assignedOwner ? doc.assignedOwner.toLowerCase().includes(searchQuery.toLowerCase()) : false);
 
       const matchesCat = categoryFilter === 'all' || doc.category === categoryFilter;
       const matchesStatus = statusFilter === 'all' || doc.status === statusFilter;
-      const matchesOwner = ownerFilter === 'all' || (doc.assignedOwner ? doc.assignedOwner.includes(ownerFilter) : false);
+      const officer = doc.assignedOfficer || doc.assignedOwner || '';
+      const matchesOwner = ownerFilter === 'all' || officer.toLowerCase().includes(ownerFilter.toLowerCase());
 
       return matchesSearch && matchesCat && matchesStatus && matchesOwner;
     });
@@ -176,7 +178,7 @@ export const CBSEComplianceView: React.FC<CBSEComplianceViewProps> = ({ onShowTo
               URGENT RENEWAL: Thane Municipal Corporation Fire Safety NOC Expiring in 18 Days
             </p>
             <p className="text-amber-800 mt-0.5 leading-relaxed">
-              Certificate No: <strong>TMC/FIRE/2023/8491</strong> expires on <strong>Nov 15, 2026</strong>. Inspection file assigned to <strong>Adv. Farhana Qureshi</strong>. CBSE affiliation norms require active validity without lapse.
+              Certificate No: <strong>TMC/FIRE/2023/8491</strong> expires on <strong>Nov 15, 2026</strong>. Inspection file assigned to <strong>Mr. Iqbal Virani (Elected Authority)</strong>. CBSE affiliation norms require active validity without lapse.
             </p>
           </div>
         </div>
@@ -271,11 +273,12 @@ export const CBSEComplianceView: React.FC<CBSEComplianceViewProps> = ({ onShowTo
             value: ownerFilter,
             onChange: setOwnerFilter,
             options: [
-              { label: 'All Owners', value: 'all' },
-              { label: 'Adv. Farhana Qureshi', value: 'Farhana' },
-              { label: 'Mrs. Shabana Shaikh', value: 'Shabana' },
-              { label: 'Dr. A. R. Khan', value: 'Khan' },
-              { label: 'Mr. Imran Siddiqui', value: 'Imran' },
+              { label: 'All Officers', value: 'all' },
+              { label: 'Mrs. Shaheen Shaikh (Principal)', value: 'Shaheen' },
+              { label: 'Shabnam Shaikh (Chair Person)', value: 'Shabnam' },
+              { label: 'Mr. Iqbal Virani (Elected Authority)', value: 'Iqbal' },
+              { label: 'Mr. Rakesh Chaubey (Coordinator)', value: 'Rakesh' },
+              { label: 'Ms. Nida Aagah (Accounts)', value: 'Nida' },
             ]
           }
         ]}

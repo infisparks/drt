@@ -29,20 +29,20 @@ export const AcademicsView: React.FC<AcademicsViewProps> = ({ onShowToast }) => 
 
   // Syllabus progress dataset
   const syllabusData = [
-    { subject: 'Mathematics', grade: 'Class X', teacher: 'Mr. Rajesh Sharma', totalChapters: 15, completed: 11, targetPct: 75, actualPct: 73.3, status: 'On Track' },
-    { subject: 'Science (Physics/Chem/Bio)', grade: 'Class X', teacher: 'Mrs. Shabana Shaikh', totalChapters: 16, completed: 13, targetPct: 80, actualPct: 81.2, status: 'Ahead' },
-    { subject: 'Social Science', grade: 'Class X', teacher: 'Mr. Tariq Memon', totalChapters: 20, completed: 14, targetPct: 75, actualPct: 70.0, status: 'Slight Delay' },
-    { subject: 'English Language & Literature', grade: 'Class X', teacher: 'Ms. Ayesha Siddiqua', totalChapters: 18, completed: 15, targetPct: 80, actualPct: 83.3, status: 'Ahead' },
-    { subject: 'Hindi / Urdu Elective', grade: 'Class X', teacher: 'Maulana M. Ilyas', totalChapters: 14, completed: 11, targetPct: 75, actualPct: 78.5, status: 'On Track' },
-    { subject: 'Information Technology (402)', grade: 'Class X', teacher: 'Mr. Danish Khan', totalChapters: 10, completed: 8, targetPct: 80, actualPct: 80.0, status: 'On Track' },
+    { subject: 'Mathematics', grade: 'Class X', teacher: 'Ms. Samreen Khatib', totalChapters: 15, completed: 11, targetPct: 75, actualPct: 73.3, status: 'On Track' },
+    { subject: 'Science (Physics/Chem/Bio)', grade: 'Class X', teacher: 'Ms. Shazia Peshimam', totalChapters: 16, completed: 13, targetPct: 80, actualPct: 81.2, status: 'Ahead' },
+    { subject: 'Social Science', grade: 'Class X', teacher: 'Ms. Bushara Sayyed', totalChapters: 20, completed: 14, targetPct: 75, actualPct: 70.0, status: 'Slight Delay' },
+    { subject: 'English Language & Literature', grade: 'Class X', teacher: 'Ms. Babita Mondal', totalChapters: 18, completed: 15, targetPct: 80, actualPct: 83.3, status: 'Ahead' },
+    { subject: 'Hindi / Regional Languages', grade: 'Class X', teacher: 'Mr. Rakesh Chaubey', totalChapters: 14, completed: 11, targetPct: 75, actualPct: 78.5, status: 'On Track' },
+    { subject: 'Information Technology (402)', grade: 'Class X', teacher: 'Mr. Sohail Rajput', totalChapters: 10, completed: 8, targetPct: 80, actualPct: 80.0, status: 'On Track' },
   ];
 
   // Lesson plans dataset
   const [lessonPlans, setLessonPlans] = useState([
-    { id: 'lp_1', subject: 'Mathematics', topic: 'Quadratic Equations (Real Roots & Discriminant)', teacher: 'Mr. Rajesh Sharma', grade: 'Class X-A', submittedOn: 'Oct 26, 2026', status: 'Approved' },
-    { id: 'lp_2', subject: 'Physics', topic: 'Light Reflection and Refraction (Ray Diagrams)', teacher: 'Mrs. Shabana Shaikh', grade: 'Class X-B', submittedOn: 'Oct 27, 2026', status: 'Approved' },
-    { id: 'lp_3', subject: 'Social Science', topic: 'Nationalism in India (Civil Disobedience Movement)', teacher: 'Mr. Tariq Memon', grade: 'Class X-A', submittedOn: 'Oct 28, 2026', status: 'Pending Review' },
-    { id: 'lp_4', subject: 'Biology', topic: 'Life Processes (Double Circulation in Humans)', teacher: 'Mrs. Zainab Khan', grade: 'Class IX-A', submittedOn: 'Oct 28, 2026', status: 'Pending Review' },
+    { id: 'lp_1', subject: 'Mathematics', topic: 'Quadratic Equations (Real Roots & Discriminant)', teacher: 'Ms. Samreen Khatib', grade: 'Class X-A', submittedOn: 'Oct 26, 2026', status: 'Approved' },
+    { id: 'lp_2', subject: 'Physics', topic: 'Light Reflection and Refraction (Ray Diagrams)', teacher: 'Mr. Akbar Faiz', grade: 'Class X-B', submittedOn: 'Oct 27, 2026', status: 'Approved' },
+    { id: 'lp_3', subject: 'Social Science', topic: 'Nationalism in India (Civil Disobedience Movement)', teacher: 'Ms. Bushara Sayyed', grade: 'Class X-A', submittedOn: 'Oct 28, 2026', status: 'Pending Review' },
+    { id: 'lp_4', subject: 'Science & Biology', topic: 'Life Processes (Double Circulation in Humans)', teacher: 'Ms. Shazia Peshimam', grade: 'Class IX-A', submittedOn: 'Oct 28, 2026', status: 'Pending Review' },
   ]);
 
   // Academic calendar key events

@@ -402,7 +402,7 @@ export const FeesFinanceView: React.FC<FeesFinanceViewProps> = ({ onShowToast })
                 Monthly Institutional Operating Disbursements
               </h3>
               <p className="text-xs text-ink-secondary">
-                Vouchers approved by Managing Director Dr. A. R. Khan
+                Vouchers approved by SMC Chair Person Shabnam Shaikh
               </p>
             </div>
             <span className="text-xs font-bold text-ink-primary bg-surface-muted px-3 py-1 rounded-full">

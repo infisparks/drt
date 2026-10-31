@@ -92,11 +92,11 @@ export const App: React.FC = () => {
   const handleRoleChange = (role: UserRole) => {
     setCurrentRole(role);
     const roleNames: Record<UserRole, string> = {
-      director: 'Director Dr. A. R. Khan (Executive Governance & Health)',
-      principal: 'Principal Mrs. Shabana Shaikh (Academics & Daily Operations)',
-      academic: 'Mr. Rajesh Sharma (Academic Coordinator & Timetable)',
-      compliance: 'Adv. Farhana Qureshi (CBSE Statutory Cell)',
-      accounts: 'Mr. Imran Siddiqui (Finance & Fee Accounts)',
+      director: 'Chair Person Shabnam Shaikh (Executive Governance & SMC)',
+      principal: 'Principal Mrs. Shaheen Shaikh (Academics & Daily Operations)',
+      academic: 'Mr. Rakesh Chaubey (Academic Coordinator & Senior Faculty)',
+      compliance: 'Mr. Iqbal Virani (Elected Authority & SMC Governance)',
+      accounts: 'Ms. Nida Aagah (Finance & Fee Accounts)',
       teacher: 'Faculty Persona',
       admin: 'System Administrator'
     };

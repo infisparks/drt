@@ -236,7 +236,7 @@ export const NABETView: React.FC<NABETViewProps> = ({ onShowToast, onNavigateVie
         return {
           ...e,
           verificationStatus: 'Verified',
-          verifiedBy: 'Mrs. Shabana Shaikh (Principal & Head QA)',
+          verifiedBy: 'Mrs. Shaheen Shaikh (Principal & Head QA)',
           verificationDate: new Date().toISOString().split('T')[0]
         };
       }
