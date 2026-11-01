@@ -13,7 +13,11 @@ export const TopStatusBar: React.FC<TopStatusBarProps> = ({ darkText = true }) =
       {/* Clock */}
       <span className="text-[13px] font-bold tracking-tight">9:41</span>
 
-      {/* Clean Mobile Status Bar - No artificial notch */}
+      {/* Dynamic Island / Notch pill */}
+      <div className="absolute left-1/2 -translate-x-1/2 top-2.5 w-24 h-6 bg-black rounded-full flex items-center justify-end px-2 gap-1.5 shadow-sm">
+        <div className="w-2.5 h-2.5 rounded-full bg-[#111] border border-gray-800" />
+        <div className="w-2 h-2 rounded-full bg-emerald-500/80 animate-pulse" />
+      </div>
 
       {/* Cellular, WiFi & Battery icons */}
       <div className="flex items-center gap-1.5">

@@ -133,8 +133,8 @@ export const ParentMobileApp: React.FC<ParentMobileAppProps> = ({
   };
 
   return (
-    <div className="w-full min-h-screen max-w-md mx-auto bg-white flex flex-col relative select-none">
-      {/* 1. Mobile Top Status Bar */}
+    <div className="w-full h-full max-w-[420px] mx-auto bg-white flex flex-col overflow-hidden relative shadow-2xl rounded-none sm:rounded-[42px] border-0 sm:border-[8px] sm:border-gray-900 select-none">
+      {/* 1. iOS Top Status Bar */}
       <TopStatusBar darkText={true} />
 
       {/* 2. Mobile App Header */}
