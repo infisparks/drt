@@ -10,7 +10,8 @@ import {
   Shield, 
   LogOut,
   ExternalLink,
-  HelpCircle
+  HelpCircle,
+  Smartphone
 } from 'lucide-react';
 import { UserProfile, UserRole } from '../../types';
 import { MOCK_USERS, CURRENT_SESSION } from '../../data/mockData';
@@ -28,6 +29,8 @@ interface AppHeaderProps {
   onSessionChange: (session: string) => void;
   onNavigateHome: () => void;
   onQuickAction?: (action: string) => void;
+  onOpenParentApp?: () => void;
+  isParentAppActive?: boolean;
 }
 
 export const AppHeader: React.FC<AppHeaderProps> = ({
@@ -41,7 +44,9 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
   selectedSession,
   onSessionChange,
   onNavigateHome,
-  onQuickAction
+  onQuickAction,
+  onOpenParentApp,
+  isParentAppActive = false
 }) => {
   const [isRoleDropdownOpen, setIsRoleDropdownOpen] = useState(false);
   const [isSessionDropdownOpen, setIsSessionDropdownOpen] = useState(false);
@@ -98,6 +103,19 @@ export const AppHeader: React.FC<AppHeaderProps> = ({
             ⌘K
           </kbd>
         </form>
+
+        {/* Parent Mobile App Link Button */}
+        <a
+          href="/mobile"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold rounded-lg border border-red-200 bg-red-50 text-red-700 hover:bg-red-100 hover:border-red-300 transition-all shadow-xs"
+          title="Open Standalone Mobile App (/mobile)"
+        >
+          <Smartphone className="w-3.5 h-3.5" />
+          <span className="hidden md:inline">Parent App</span>
+          <ExternalLink className="w-3 h-3 text-red-500" />
+        </a>
 
         {/* Academic Session Selector */}
         <div className="relative">

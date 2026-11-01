@@ -24,6 +24,7 @@ import {
   Sparkles,
   PanelLeftClose,
   PanelLeftOpen,
+  Smartphone,
   X
 } from 'lucide-react';
 import { UserRole } from '../../types';
