@@ -16,7 +16,15 @@ import {
   ExamReport, 
   FacilityAsset, 
   TransportRoute, 
-  LibraryBook 
+  LibraryBook,
+  IncidentRecord,
+  InvolvedPerson,
+  MISSummaryMetrics,
+  StreamCollectionStat,
+  MonthlyCollectionTrend,
+  FeeHeadBreakdownItem,
+  PaymentModeShare,
+  AgingBucketItem
 } from '../types';
 
 export const CURRENT_SESSION = "2026-2027";
@@ -1669,3 +1677,487 @@ export const MOCK_LIBRARY_BOOKS: LibraryBook[] = [
   { id: "bk_03", isbn: "978-0143424123", title: "Wings of Fire - An Autobiography", author: "Dr. A. P. J. Abdul Kalam", category: "Literature & Fiction", totalCopies: 15, availableCopies: 11, issuedCopies: 4, shelfLocation: "Shelf BIO-12" },
   { id: "bk_04", isbn: "978-9351448839", title: "Modern ABC of Chemistry for Class XII", author: "Dr. S. P. Jauhar", category: "CBSE Reference", totalCopies: 18, availableCopies: 6, issuedCopies: 12, shelfLocation: "Shelf C-301" }
 ];
+
+// =============================================================
+// CAMPUS INCIDENTS & DISCIPLINARY COMMITTEE MOCK DATA
+// =============================================================
+export const MOCK_INCIDENTS: IncidentRecord[] = [
+  {
+    id: "inc_01",
+    incidentNo: "DRT-INC-2026-089",
+    title: "Physical Altercation / Brawl near Senior Cafeteria Lawn",
+    category: "Physical Fighting",
+    severity: "Critical",
+    date: "2026-10-24",
+    time: "01:45 PM",
+    location: "Ground Floor Cafeteria Courtyard",
+    reportedBy: "Mr. Abdul Sattar (Chief Security Officer)",
+    investigator: "Disciplinary Proctor Mr. Rakesh Chaubey & Vice-Principal",
+    status: "Action Enforced",
+    description: "Physical brawl erupted following a heated verbal dispute over lunch seating. Metal chairs were overturned and two students traded punches. Campus security intervened within 2 minutes. Primary aggressor attempted to flee toward the western boundary gate before being detained.",
+    evidenceDetails: "CCTV Camera #04 & #07 footages preserved (01:43 PM - 01:49 PM); Medical first-aid register #DRT-FA-88; Signed statements from 3 student witnesses and cafeteria supervisor.",
+    committeeDecision: "Proctorial Board convened at 04:30 PM. Unanimous decision: Primary aggressor rusticated for 30 academic days; Secondary combatant issued official Show-Cause Notice with 48h deadline; Supporting student placed on Last Chance Warning with parental stamp paper undertaking.",
+    hearingDate: "2026-10-25",
+    createdAt: "2026-10-24T14:15:00Z",
+    involvedPersons: [
+      {
+        id: "inv_01",
+        name: "Faizan Qureshi",
+        admissionNo: "DRT-2024-0089",
+        grade: "Class XII-Sci",
+        department: "Senior Secondary (Science)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=150",
+        role: "Initiator",
+        action: "Rusticated",
+        actionDate: "2026-10-25",
+        actionDetails: "Rusticated from DRT Campus for 30 academic days (Oct 25 to Nov 24, 2026). Debarred from entering school premises, attending lectures, and taking Term 1 Pre-Board practicals. Re-admission conditional on SMC clearance.",
+        penaltyDuration: "30 Academic Days (until Nov 24, 2026)",
+        noticeRefNumber: "DRT/DISC/2026/R-041",
+        parentContacted: true,
+        parentMeetingDate: "2026-10-25",
+        parentSignedUndertaking: true
+      },
+      {
+        id: "inv_02",
+        name: "Arman Sayyed",
+        admissionNo: "DRT-2023-0144",
+        grade: "Class XII-Com",
+        department: "Senior Secondary (Commerce)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150",
+        role: "Aggressor",
+        action: "Notice Issued",
+        actionDate: "2026-10-25",
+        actionDetails: "Official Disciplinary Show-Cause Notice served requiring written explanation within 48 hours. Suspended from College Cricket Team and barred from campus extracurriculars pending inquiry.",
+        penaltyDuration: "Inquiry Pending (Hearing Nov 04)",
+        noticeRefNumber: "DRT/DISC/2026/SCN-112",
+        parentContacted: true,
+        parentMeetingDate: "2026-10-26",
+        parentSignedUndertaking: false
+      },
+      {
+        id: "inv_03",
+        name: "Zubair Khan",
+        admissionNo: "DRT-2024-0312",
+        grade: "Class XI-Sci",
+        department: "Senior Secondary (Science)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150",
+        role: "Accomplice",
+        action: "Last Chance Warning",
+        actionDate: "2026-10-25",
+        actionDetails: "Given Last Chance Final Written Warning. Father executed ₹10,000 moral conduct bond on stamp paper. Any subsequent misconduct will result in immediate permanent expulsion.",
+        penaltyDuration: "Conduct Probation till March 2027",
+        noticeRefNumber: "DRT/DISC/2026/LCW-088",
+        parentContacted: true,
+        parentMeetingDate: "2026-10-25",
+        parentSignedUndertaking: true
+      },
+      {
+        id: "inv_04",
+        name: "Aman Sharma",
+        admissionNo: "DRT-2024-0199",
+        grade: "Class XI-Sci",
+        department: "Senior Secondary (Science)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=150",
+        role: "Witness",
+        action: "Exonerated",
+        actionDate: "2026-10-25",
+        actionDetails: "Intervened as peacemaker; testified before Proctorial Board. No sanction imposed.",
+        parentContacted: true
+      }
+    ]
+  },
+  {
+    id: "inc_02",
+    incidentNo: "DRT-INC-2026-081",
+    title: "Senior Corridor Fist Fight & Display Board Vandalism",
+    category: "Physical Fighting",
+    severity: "High",
+    date: "2026-10-18",
+    time: "11:30 AM",
+    location: "2nd Floor Wing-B Corridor outside Chemistry Lab",
+    reportedBy: "Ms. Shazia Peshimam (Faculty)",
+    investigator: "Mrs. Shaheen Shaikh (Principal) & Academic Coordinator",
+    status: "Action Enforced",
+    description: "Two Class XI students engaged in a violent fist fight during period changeover. Wooden notice board shattered and classroom door lock mechanism damaged. Multiple students witnessed.",
+    evidenceDetails: "Wing-B 2nd Floor CCTV Camera #12 recording; Broken glass and board cataloged; Written confession letters from both students.",
+    committeeDecision: "Both students penalized: One served formal Show Cause Notice & monetary restitution levy; Second placed on Last Chance Warning with compulsory community library service.",
+    hearingDate: "2026-10-19",
+    createdAt: "2026-10-18T12:05:00Z",
+    involvedPersons: [
+      {
+        id: "inv_05",
+        name: "Rehan Siddiqui",
+        admissionNo: "DRT-2025-0182",
+        grade: "Class XI-Com",
+        department: "Senior Secondary (Commerce)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=150",
+        role: "Initiator",
+        action: "Notice Issued",
+        actionDate: "2026-10-19",
+        actionDetails: "Show Cause Notice #DRT/DISC/2026/SCN-108 served. Assessed ₹3,500 property restoration penalty paid by parents. 7-day campus suspension served.",
+        penaltyDuration: "7-Day Campus Suspension (Completed)",
+        noticeRefNumber: "DRT/DISC/2026/SCN-108",
+        parentContacted: true,
+        parentMeetingDate: "2026-10-19",
+        parentSignedUndertaking: true
+      },
+      {
+        id: "inv_06",
+        name: "Sameer Ansari",
+        admissionNo: "DRT-2025-0219",
+        grade: "Class XI-Com",
+        department: "Senior Secondary (Commerce)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=150",
+        role: "Aggressor",
+        action: "Last Chance Warning",
+        actionDate: "2026-10-19",
+        actionDetails: "Given Last Chance Final Warning. Placed on behavior monitoring under Class Teacher Mr. Sohail Rajput. Required to complete 15 hours of library cataloging service.",
+        penaltyDuration: "15 Hours Community Service & 1-Year Probation",
+        noticeRefNumber: "DRT/DISC/2026/LCW-085",
+        parentContacted: true,
+        parentMeetingDate: "2026-10-19",
+        parentSignedUndertaking: true
+      }
+    ]
+  },
+  {
+    id: "inc_03",
+    incidentNo: "DRT-INC-2026-074",
+    title: "Ragging & Intimidation of Junior Student in Locker Bay",
+    category: "Ragging & Bullying",
+    severity: "Critical",
+    date: "2026-10-10",
+    time: "03:15 PM",
+    location: "Boys Locker Room & Sports Pavilion",
+    reportedBy: "Parent Complaint to Anti-Ragging Cell & Helpline",
+    investigator: "Anti-Ragging Committee (Adv. Farhan Shaikh & Principal)",
+    status: "Action Enforced",
+    description: "Class X student cornered by two Class XII students, subjected to verbal abuse, forced to carry heavy kit bags, and threatened with bodily harm if reported. Zero-tolerance statutory mandate triggered.",
+    evidenceDetails: "Audio recording captured on mobile device; Anti-Ragging Committee Report dated Oct 11; Medical trauma assessment report.",
+    committeeDecision: "Severe statutory sanction: Initiator rusticated for 1 Full Academic Term (90 Days); Accomplice issued Show Cause Notice and barred from sports leadership; Statutory compliance notification dispatched to CBSE Regional Office Pune.",
+    hearingDate: "2026-10-12",
+    createdAt: "2026-10-10T16:30:00Z",
+    involvedPersons: [
+      {
+        id: "inv_07",
+        name: "Shoaib Pathan",
+        admissionNo: "DRT-2023-0092",
+        grade: "Class XII-Arts",
+        department: "Senior Secondary (Arts)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150",
+        role: "Initiator",
+        action: "Rusticated",
+        actionDate: "2026-10-12",
+        actionDetails: "Rusticated from DRT Knowledge Hub for 90 academic days (Oct 12, 2026 to Jan 15, 2027) under CBSE Anti-Ragging Regulation 2009. Prohibited from stepping foot inside school campus. Police liaison officer notified.",
+        penaltyDuration: "90 Academic Days (until Jan 15, 2027)",
+        noticeRefNumber: "DRT/DISC/2026/R-040",
+        parentContacted: true,
+        parentMeetingDate: "2026-10-12",
+        parentSignedUndertaking: true
+      },
+      {
+        id: "inv_08",
+        name: "Bilal Momin",
+        admissionNo: "DRT-2023-0118",
+        grade: "Class XII-Arts",
+        department: "Senior Secondary (Arts)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150",
+        role: "Accomplice",
+        action: "Notice Issued",
+        actionDate: "2026-10-12",
+        actionDetails: "Show Cause Notice #DRT/DISC/2026/SCN-105 issued. Stripped of Sports Captain badge. Under mandatory behavioral counselling twice weekly with school counsellor.",
+        penaltyDuration: "Stripped of Title & 6-Month Behavioral Supervision",
+        noticeRefNumber: "DRT/DISC/2026/SCN-105",
+        parentContacted: true,
+        parentMeetingDate: "2026-10-13",
+        parentSignedUndertaking: true
+      },
+      {
+        id: "inv_09",
+        name: "Danish Shaikh",
+        admissionNo: "DRT-2025-0401",
+        grade: "Class X-B",
+        department: "Secondary School",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=150",
+        role: "Victim",
+        action: "Counseling",
+        actionDate: "2026-10-12",
+        actionDetails: "Victim support protocol initiated. Trauma counseling sessions scheduled; security escort assigned during transit.",
+        parentContacted: true,
+        parentMeetingDate: "2026-10-12"
+      }
+    ]
+  },
+  {
+    id: "inc_04",
+    incidentNo: "DRT-INC-2026-068",
+    title: "Exam Cheating Syndicate & Unauthorized Mobile Device in Hall",
+    category: "Classroom Indiscipline",
+    severity: "Medium",
+    date: "2026-09-28",
+    time: "10:00 AM",
+    location: "Examination Hall 3 (Senior Wing)",
+    reportedBy: "Mr. Akbar Faiz (Chief Exam Invigilator)",
+    investigator: "Examination Disciplinary Committee",
+    status: "Action Enforced",
+    description: "During Mid-Term Chemistry exam, invigilator detected concealed smartphone with active WhatsApp messaging group sharing multiple-choice answer solutions.",
+    evidenceDetails: "Confiscated OnePlus device with chat screenshots; Duplicate answer scripts marked 'UFM' (Unfair Means); Flying squad inspection report.",
+    committeeDecision: "Both answer sheets cancelled for the subject; Student with phone served formal Show-Cause Notice; Receiving student placed on Last Chance Warning.",
+    hearingDate: "2026-09-29",
+    createdAt: "2026-09-28T11:45:00Z",
+    involvedPersons: [
+      {
+        id: "inv_10",
+        name: "Mustafa Tinwala",
+        admissionNo: "DRT-2024-0067",
+        grade: "Class XII-Sci",
+        department: "Senior Secondary (Science)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150",
+        role: "Initiator",
+        action: "Notice Issued",
+        actionDate: "2026-09-29",
+        actionDetails: "Unfair Means Show Cause Notice served. Chemistry paper awarded zero marks. Confiscated smartphone surrendered to parents with stern undertaking.",
+        penaltyDuration: "Zero Marks in Chemistry PT-1 & Exam Probation",
+        noticeRefNumber: "DRT/DISC/2026/SCN-099",
+        parentContacted: true,
+        parentMeetingDate: "2026-09-30",
+        parentSignedUndertaking: true
+      },
+      {
+        id: "inv_11",
+        name: "Kaif Merchant",
+        admissionNo: "DRT-2024-0155",
+        grade: "Class XII-Sci",
+        department: "Senior Secondary (Science)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150",
+        role: "Accomplice",
+        action: "Last Chance Warning",
+        actionDate: "2026-09-29",
+        actionDetails: "Given Last Chance Warning by Principal. Re-examination permitted under direct supervisory invigilation only. Parent warned of permanent expulsion on repeat.",
+        penaltyDuration: "Probationary Re-exam & Warning Letter on Permanent File",
+        noticeRefNumber: "DRT/DISC/2026/LCW-081",
+        parentContacted: true,
+        parentMeetingDate: "2026-09-30",
+        parentSignedUndertaking: true
+      }
+    ]
+  },
+  {
+    id: "inc_05",
+    incidentNo: "DRT-INC-2026-059",
+    title: "Violent Skirmish & Stone Pelting near Campus Bus Stop #2",
+    category: "Physical Fighting",
+    severity: "High",
+    date: "2026-09-14",
+    time: "07:15 AM",
+    location: "Kausa Shimla Park Bus Stop #2 (School Transit Point)",
+    reportedBy: "Mr. Abdul Ghaffar (Bus Fleet Driver) & Transport In-charge",
+    investigator: "Transport Safety Committee & Vice-Principal",
+    status: "Resolved",
+    description: "Two Class X students from rival cricket batches engaged in violent brawl at bus pickup point, hurling gravel and obscenities in front of younger primary students.",
+    evidenceDetails: "Bus CCTV onboard DVR recording; Bus attendant statement; Public bystander testimony.",
+    committeeDecision: "Both students barred from school transport for 21 days; Formal notices and last chance warnings executed in presence of parents.",
+    hearingDate: "2026-09-15",
+    createdAt: "2026-09-14T08:30:00Z",
+    involvedPersons: [
+      {
+        id: "inv_12",
+        name: "Salman Inamdar",
+        admissionNo: "DRT-2025-0320",
+        grade: "Class X-B",
+        department: "Secondary School",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&q=80&w=150",
+        role: "Initiator",
+        action: "Notice Issued",
+        actionDate: "2026-09-15",
+        actionDetails: "Official Notice served. Bus transport pass revoked for 21 days. Parents required to arrange private transit under strict time verification.",
+        penaltyDuration: "21-Day Bus Suspension (Served)",
+        noticeRefNumber: "DRT/DISC/2026/SCN-094",
+        parentContacted: true,
+        parentMeetingDate: "2026-09-15",
+        parentSignedUndertaking: true
+      },
+      {
+        id: "inv_13",
+        name: "Tariq Memon",
+        admissionNo: "DRT-2025-0331",
+        grade: "Class X-A",
+        department: "Secondary School",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=150",
+        role: "Aggressor",
+        action: "Last Chance Warning",
+        actionDate: "2026-09-15",
+        actionDetails: "Given Last Chance Final Warning. Signed unconditional apology read during morning assembly. Bus pass suspended for 21 days.",
+        penaltyDuration: "21-Day Bus Suspension & Public Apology",
+        noticeRefNumber: "DRT/DISC/2026/LCW-079",
+        parentContacted: true,
+        parentMeetingDate: "2026-09-15",
+        parentSignedUndertaking: true
+      }
+    ]
+  },
+  {
+    id: "inc_06",
+    incidentNo: "DRT-INC-2026-042",
+    title: "Deliberate Damage of Chemistry Titration Apparatus & Acid Spillage",
+    category: "Property Damage",
+    severity: "High",
+    date: "2026-09-02",
+    time: "02:20 PM",
+    location: "2nd Floor Wing-B Chemistry Laboratory",
+    reportedBy: "Mr. Irfan Qazi (Lab Assistant)",
+    investigator: "Science Department HOD Mr. Akbar Faiz",
+    status: "Resolved",
+    description: "Senior students engaged in rowdy prank intentionally tipped over burette stand and smashed volumetric flasks containing dilute hydrochloric acid. Laboratory evacuated immediately; no severe burn injuries.",
+    evidenceDetails: "Breakage register listing 4 burettes, 2 pipettes, and 6 flasks broken (Value: ₹6,200); Safety incident report #LAB-CHEM-04.",
+    committeeDecision: "Primary culprit rusticated for 14 academic days; Accomplice given last chance warning; Damage surcharge of ₹6,200 recovered from parents.",
+    hearingDate: "2026-09-03",
+    createdAt: "2026-09-02T15:10:00Z",
+    involvedPersons: [
+      {
+        id: "inv_14",
+        name: "Aaquib Ansari",
+        admissionNo: "DRT-2024-0071",
+        grade: "Class XII-Sci",
+        department: "Senior Secondary (Science)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=150",
+        role: "Initiator",
+        action: "Rusticated",
+        actionDate: "2026-09-03",
+        actionDetails: "Rusticated from DRT for 14 academic days (Sept 03 to Sept 17, 2026). Surcharge of ₹6,200 paid by parents. Completed safety sensitization course.",
+        penaltyDuration: "14 Days Rustication (Completed)",
+        noticeRefNumber: "DRT/DISC/2026/R-039",
+        parentContacted: true,
+        parentMeetingDate: "2026-09-03",
+        parentSignedUndertaking: true
+      },
+      {
+        id: "inv_15",
+        name: "Mohsin Khan",
+        admissionNo: "DRT-2024-0255",
+        grade: "Class XII-Sci",
+        department: "Senior Secondary (Science)",
+        gender: "Male",
+        avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150",
+        role: "Accomplice",
+        action: "Last Chance Warning",
+        actionDate: "2026-09-03",
+        actionDetails: "Given Last Chance Warning. Assigned 10 hours of supervised laboratory clean-up service. Warning letter added to personal dossier.",
+        penaltyDuration: "10 Hours Lab Community Service",
+        noticeRefNumber: "DRT/DISC/2026/LCW-075",
+        parentContacted: true,
+        parentMeetingDate: "2026-09-03",
+        parentSignedUndertaking: true
+      }
+    ]
+  }
+];
+
+// =============================================================
+// MIS COLLECTION & REVENUE ANALYTICS MOCK DATA
+// =============================================================
+export const MOCK_MIS_METRICS: MISSummaryMetrics = {
+  totalGrossCollected: 8245000,
+  collectionTarget: 10120000,
+  achievementRate: 81.47,
+  todayCollection: 184500,
+  monthCollection: 1492000,
+  totalOutstanding: 1875000,
+  digitalPaymentRate: 78.4,
+  reconciliationRate: 99.4,
+  defaultersCount: 142
+};
+
+export const MOCK_STREAM_STATS: StreamCollectionStat[] = [
+  {
+    stream: "Sr. Secondary Science (XI - XII)",
+    code: "HSC-SCI",
+    headOfDept: "Mr. Akbar Faiz",
+    studentsEnrolled: 380,
+    targetAmount: 3344000,
+    collectedAmount: 2820000,
+    outstandingAmount: 524000,
+    recoveryRatePct: 84.33,
+    defaultersCount: 28
+  },
+  {
+    stream: "Sr. Secondary Commerce (XI - XII)",
+    code: "HSC-COM",
+    headOfDept: "Ms. Samreen Khatib",
+    studentsEnrolled: 340,
+    targetAmount: 2652000,
+    collectedAmount: 2210000,
+    outstandingAmount: 442000,
+    recoveryRatePct: 83.33,
+    defaultersCount: 24
+  },
+  {
+    stream: "Secondary School (IX - X)",
+    code: "CBSE-SEC",
+    headOfDept: "Mr. Rakesh Chaubey",
+    studentsEnrolled: 316,
+    targetAmount: 2280000,
+    collectedAmount: 1855000,
+    outstandingAmount: 425000,
+    recoveryRatePct: 81.36,
+    defaultersCount: 36
+  },
+  {
+    stream: "Middle School (VI - VIII)",
+    code: "CBSE-MID",
+    headOfDept: "Ms. Babita Mondal",
+    studentsEnrolled: 212,
+    targetAmount: 1844000,
+    collectedAmount: 1360000,
+    outstandingAmount: 484000,
+    recoveryRatePct: 73.75,
+    defaultersCount: 54
+  }
+];
+
+export const MOCK_MONTHLY_COLLECTION_TRENDS: MonthlyCollectionTrend[] = [
+  { month: "Apr 2026", year: 2026, collected: 2450000, target: 2500000, prevYear: 2150000, achievementPct: 98.0 },
+  { month: "May 2026", year: 2026, collected: 820000, target: 900000, prevYear: 750000, achievementPct: 91.1 },
+  { month: "Jun 2026", year: 2026, collected: 640000, target: 750000, prevYear: 580000, achievementPct: 85.3 },
+  { month: "Jul 2026", year: 2026, collected: 2100000, target: 2200000, prevYear: 1850000, achievementPct: 95.5 },
+  { month: "Aug 2026", year: 2026, collected: 580000, target: 650000, prevYear: 520000, achievementPct: 89.2 },
+  { month: "Sep 2026", year: 2026, collected: 490000, target: 550000, prevYear: 440000, achievementPct: 89.1 },
+  { month: "Oct 2026", year: 2026, collected: 1165000, target: 1320000, prevYear: 1020000, achievementPct: 88.3 }
+];
+
+export const MOCK_FEE_HEAD_BREAKDOWN: FeeHeadBreakdownItem[] = [
+  { head: "Tuition Fees", target: 5600000, collected: 4820000, percentage: 86.07, color: "#4F46E5" }, // Indigo
+  { head: "Term & Examination Fees", target: 1800000, collected: 1480000, percentage: 82.22, color: "#7C3AED" }, // Purple
+  { head: "Computer & ICT Lab Charges", target: 820000, collected: 640000, percentage: 78.05, color: "#2563EB" }, // Blue
+  { head: "Annual Campus Development", target: 1250000, collected: 965000, percentage: 77.20, color: "#0D9488" }, // Teal
+  { head: "Transport & Bus Facility", target: 650000, collected: 340000, percentage: 52.31, color: "#D97706" } // Amber
+];
+
+export const MOCK_PAYMENT_MODE_SHARES: PaymentModeShare[] = [
+  { mode: "UPI / QR Gateway", amount: 4320000, percentage: 52.4, transactionsCount: 1120, color: "#6366F1" }, // Indigo
+  { mode: "NetBanking / Gateway", amount: 2145000, percentage: 26.0, transactionsCount: 428, color: "#8B5CF6" }, // Violet
+  { mode: "Bank Cheque / DD", amount: 1120000, percentage: 13.6, transactionsCount: 164, color: "#06B6D4" }, // Cyan
+  { mode: "Cash Counter Desk", amount: 660000, percentage: 8.0, transactionsCount: 186, color: "#F59E0B" } // Amber
+];
+
+export const MOCK_AGING_BUCKETS: AgingBucketItem[] = [
+  { range: "0 - 30 Days (Current Cycle)", amount: 680000, studentsCount: 58, severity: "normal" },
+  { range: "31 - 60 Days (First Overdue)", amount: 540000, studentsCount: 41, severity: "moderate" },
+  { range: "61 - 90 Days (Second Reminder)", amount: 390000, studentsCount: 27, severity: "high" },
+  { range: "90+ Days (Statutory Notice)", amount: 265000, studentsCount: 16, severity: "critical" }
+];
+

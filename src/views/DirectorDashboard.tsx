@@ -53,6 +53,16 @@ export const DirectorDashboard: React.FC<DirectorDashboardProps> = ({
 
   const actionItems = [
     {
+      id: 'ACT-DISC',
+      title: 'Proctorial Board Incident Review: 3 Students Rusticated',
+      category: 'Campus Discipline',
+      priority: 'Urgent',
+      responsible: 'Mr. Rakesh Chaubey (Proctor) & Principal',
+      dueDate: 'In 2 Days (Nov 04, 2026)',
+      status: 'Show-cause notices served',
+      targetView: 'incidents' as ViewKey
+    },
+    {
       id: 'ACT-00',
       title: 'NABET 4th Edition Self-Assessment & MRM Minutes Signoff',
       category: 'Quality Accreditation',
@@ -322,8 +332,8 @@ export const DirectorDashboard: React.FC<DirectorDashboardProps> = ({
             title="Fee Collection vs Dues (Quarterly)"
             subtitle="Quarterly collected volume (navy) vs outstanding balances (amber)"
             action={{
-              label: "Finance Ledger",
-              onClick: () => onNavigate('fees')
+              label: "MIS Collection Graphs",
+              onClick: () => onNavigate('mis-collection')
             }}
             legend={[
               { label: "Collected (₹ Lakhs)", color: "#173B70" },

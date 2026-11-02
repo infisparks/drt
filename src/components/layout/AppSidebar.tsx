@@ -25,7 +25,9 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   Smartphone,
-  X
+  X,
+  ShieldAlert,
+  TrendingUp
 } from 'lucide-react';
 import { UserRole } from '../../types';
 
@@ -37,6 +39,8 @@ export type ViewKey =
   | 'examinations'
   | 'staff'
   | 'fees'
+  | 'incidents'
+  | 'mis-collection'
   | 'compliance'
   | 'disclosure'
   | 'nabet'
@@ -110,7 +114,8 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
         { key: 'academics', label: 'Academics', icon: BookOpen },
         { key: 'examinations', label: 'Examinations', icon: GraduationCap },
         { key: 'staff', label: 'Staff & HR', icon: UserCheck, badge: '86' },
-        { key: 'fees', label: 'Fees & Finance', icon: ReceiptIndianRupee, badge: '₹82.4L' }
+        { key: 'fees', label: 'Fees & Finance', icon: ReceiptIndianRupee, badge: '₹82.4L' },
+        { key: 'incidents', label: 'Incidents & Discipline', icon: ShieldAlert, badge: '3 Restigated', badgeVariant: 'danger' }
       ]
     },
     {
@@ -138,6 +143,7 @@ export const AppSidebar: React.FC<AppSidebarProps> = ({
       id: 'insights',
       label: 'INSIGHTS & SETTINGS',
       items: [
+        { key: 'mis-collection', label: 'MIS Collection Graphs', icon: TrendingUp, badge: '₹82.4L', badgeVariant: 'brand' },
         { key: 'reports', label: 'Reports & Analytics', icon: BarChart3 },
         { key: 'users-permissions', label: 'Users & Permissions', icon: KeyRound },
         { key: 'settings', label: 'Settings', icon: Settings }

@@ -22,6 +22,8 @@ import { ApprovalsView } from './views/ApprovalsView';
 import { ResourcesView } from './views/ResourcesView';
 import { ReportsView } from './views/ReportsView';
 import { UsersSettingsView } from './views/UsersSettingsView';
+import { IncidentsView } from './views/IncidentsView';
+import { MISCollectionView } from './views/MISCollectionView';
 
 export const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<ViewKey>('command-centre');
@@ -113,6 +115,8 @@ export const App: React.FC = () => {
       'examinations': { group: 'School Operations', label: 'Examinations' },
       'staff': { group: 'School Operations', label: 'Staff & HR' },
       'fees': { group: 'School Operations', label: 'Fees & Finance' },
+      'incidents': { group: 'School Operations', label: 'Campus Incidents & Discipline' },
+      'mis-collection': { group: 'Insights & Settings', label: 'MIS Collection Graphs' },
       'nabet': { group: 'Governance', label: 'NABET Accreditation (June 2025)' },
       'compliance': { group: 'Governance', label: 'CBSE Compliance' },
       'disclosure': { group: 'Governance', label: 'Public Disclosure' },
@@ -139,6 +143,10 @@ export const App: React.FC = () => {
     const q = query.toLowerCase();
     if (q.includes('nabet') || q.includes('accredit') || q.includes('standard 2025') || q.includes('qci')) {
       setCurrentView('nabet');
+    } else if (q.includes('incident') || q.includes('fight') || q.includes('discipline') || q.includes('rusticat') || q.includes('notice') || q.includes('warning')) {
+      setCurrentView('incidents');
+    } else if (q.includes('mis') || q.includes('graph') || q.includes('revenue') || q.includes('collection analytics')) {
+      setCurrentView('mis-collection');
     } else if (q.includes('fire') || q.includes('noc') || q.includes('compliance')) {
       setCurrentView('compliance');
     } else if (q.includes('fee') || q.includes('due') || q.includes('receipt')) {
@@ -250,6 +258,14 @@ export const App: React.FC = () => {
 
           {currentView === 'fees' && (
             <FeesFinanceView onShowToast={addToast} />
+          )}
+
+          {currentView === 'incidents' && (
+            <IncidentsView onShowToast={addToast} />
+          )}
+
+          {currentView === 'mis-collection' && (
+            <MISCollectionView onShowToast={addToast} />
           )}
 
           {currentView === 'nabet' && (

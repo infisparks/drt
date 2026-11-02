@@ -262,3 +262,115 @@ export interface LibraryBook {
   issuedCopies: number;
   shelfLocation: string;
 }
+
+// -------------------------------------------------------------
+// Campus Incident & Disciplinary Management Types
+// -------------------------------------------------------------
+export type IncidentSeverity = 'Critical' | 'High' | 'Medium' | 'Low';
+
+export type DisciplinaryActionType = 
+  | 'Rusticated' 
+  | 'Notice Issued' 
+  | 'Last Chance Warning' 
+  | 'Counseling' 
+  | 'Under Investigation' 
+  | 'Exonerated';
+
+export interface InvolvedPerson {
+  id: string;
+  name: string;
+  admissionNo: string;
+  grade: string;
+  department: string;
+  gender: 'Male' | 'Female' | 'Other';
+  avatar?: string;
+  role: 'Initiator' | 'Aggressor' | 'Accomplice' | 'Victim' | 'Witness';
+  action: DisciplinaryActionType;
+  actionDate: string;
+  actionDetails: string;
+  penaltyDuration?: string;
+  noticeRefNumber?: string;
+  parentContacted: boolean;
+  parentMeetingDate?: string;
+  parentSignedUndertaking?: boolean;
+}
+
+export interface IncidentRecord {
+  id: string;
+  incidentNo: string;
+  title: string;
+  category: 'Physical Fighting' | 'Ragging & Bullying' | 'Classroom Indiscipline' | 'Property Damage' | 'Substance Misconduct' | 'Cyber Harassment' | string;
+  severity: IncidentSeverity;
+  date: string;
+  time: string;
+  location: string;
+  reportedBy: string;
+  investigator: string;
+  status: 'Action Enforced' | 'Under Investigation' | 'Committee Hearing Pending' | 'Resolved';
+  description: string;
+  evidenceDetails: string;
+  committeeDecision: string;
+  hearingDate?: string;
+  involvedPersons: InvolvedPerson[];
+  createdAt: string;
+}
+
+// -------------------------------------------------------------
+// MIS Collection & Revenue Analytics Types
+// -------------------------------------------------------------
+export interface MISSummaryMetrics {
+  totalGrossCollected: number;
+  collectionTarget: number;
+  achievementRate: number;
+  todayCollection: number;
+  monthCollection: number;
+  totalOutstanding: number;
+  digitalPaymentRate: number;
+  reconciliationRate: number;
+  defaultersCount: number;
+}
+
+export interface StreamCollectionStat {
+  stream: string;
+  code: string;
+  headOfDept: string;
+  studentsEnrolled: number;
+  targetAmount: number;
+  collectedAmount: number;
+  outstandingAmount: number;
+  recoveryRatePct: number;
+  defaultersCount: number;
+}
+
+export interface MonthlyCollectionTrend {
+  month: string;
+  year: number;
+  collected: number;
+  target: number;
+  prevYear: number;
+  achievementPct: number;
+}
+
+export interface FeeHeadBreakdownItem {
+  head: string;
+  target: number;
+  collected: number;
+  percentage: number;
+  color: string;
+}
+
+export interface PaymentModeShare {
+  mode: string;
+  amount: number;
+  percentage: number;
+  transactionsCount: number;
+  color: string;
+}
+
+export interface AgingBucketItem {
+  range: string;
+  amount: number;
+  studentsCount: number;
+  severity: 'normal' | 'moderate' | 'high' | 'critical';
+}
+
